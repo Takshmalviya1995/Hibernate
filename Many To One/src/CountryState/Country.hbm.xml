@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="CountryState">
+ <class name="Country" table="country" >
+ 
+  <id name="coutId" column="contid"/>
+ 
+ <property name="coutName" column="contname" length="10"/>
+ 
+</class>
+</hibernate-mapping>

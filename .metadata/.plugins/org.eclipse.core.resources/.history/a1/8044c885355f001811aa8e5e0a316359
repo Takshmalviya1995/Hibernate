@@ -1,0 +1,23 @@
+package BugTracker;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Users")
+public class Users {
+
+	@Id
+	@Column(name="usersid")
+	private int usersId;
+	
+	@Column(name="users_role")
+	private String usersRole;
+	
+	@Column(name="users_name")
+	private String usersName;
+	
+	
+}

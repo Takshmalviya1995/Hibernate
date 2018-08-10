@@ -1,0 +1,98 @@
+package CategoryItem;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+
+
+public class Test {
+
+	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("JpaManyToMany");
+	static EntityManager em = emf.createEntityManager();
+	
+	public static void insert()
+	{
+		Category ca1 = new Category();
+		ca1.setCategoryId(101);
+		ca1.setCategoryName("cat1");
+	
+		Category ca2 = new Category();
+		ca2.setCategoryId(102);
+		ca2.setCategoryName("cat2");
+	
+		Item it1 = new Item();
+		it1.setItemid(501);
+		it1.setItemName("pen");
+	
+		Item it2 = new Item();
+		it2.setItemid(502);
+		it2.setItemName("pencil");
+	
+		Set s = new HashSet();
+		s.add(it1);
+		s.add(it2);
+	
+		ca1.setItem(s);
+		ca2.setItem(s);
+		
+		em.getTransaction().begin();
+		em.persist(ca1);
+		em.persist(ca2);
+		em.getTransaction().commit();
+		em.close();
+	}
+	public static void select()
+	{
+		
+		Query q = em.createQuery("from Category");
+		List l = q.getResultList();
+		Iterator itr = l.iterator();
+		while(itr.hasNext())
+		{
+			Category ca = (Category)itr.next();
+			System.out.println(ca.getCategoryId()+"...."+ca.getCategoryName());
+			
+			Set se = ca.getItem();
+			Iterator itr2 = se.iterator();
+			while(itr2.hasNext())
+			{
+				Item it = (Item)itr2.next();
+				System.out.println(it.getItemid()+"..."+it.getItemName());
+			}
+		}
+	}
+	public static void update()
+	{
+		em.getTransaction().begin();
+		Item it = (Item)em.find(Item.class,501);
+		it.setItemName("rubber");
+		em.persist(it);
+		em.getTransaction().commit();
+		em.close();
+	}
+	public static void delete()
+	{
+		em.getTransaction().begin();
+		Item it = (Item)em.find(Item.class,502);
+		//Category ca = (Category)em.find(Category.class, 501);
+		em.remove(it);
+		em.getTransaction().commit();
+		em.close();
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Test t = new Test();
+		//t.insert();
+		t.select();
+		//t.update();
+		//t.delete();
+	}
+
+}

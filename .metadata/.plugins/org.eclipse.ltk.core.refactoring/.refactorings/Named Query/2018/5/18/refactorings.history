@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.NamedQuery.SelectQuery&apos; to &apos;NamedQueries&apos;&#x0D;&#x0A;- Original project: &apos;Named Query&apos;&#x0D;&#x0A;- Original element: &apos;com.NamedQuery.SelectQuery&apos;&#x0D;&#x0A;- Renamed element: &apos;com.NamedQuery.NamedQueries&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;SelectQuery&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.NamedQuery{SelectQuery.java[SelectQuery" matchStrategy="1" name="NamedQueries" qualified="false" references="true" similarDeclarations="false" stamp="1525238679993" textual="false" version="1.0"/>
+</session>

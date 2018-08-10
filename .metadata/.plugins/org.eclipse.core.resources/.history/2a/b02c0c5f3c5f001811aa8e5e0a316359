@@ -1,0 +1,33 @@
+package BugTracker;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="Users")
+@Data
+public class Users {
+
+	@Id
+	@Column(name="usersid")
+	private int usersId;
+	
+	@Column(name="users_role")
+	private String usersRole;
+	
+	@Column(name="users_name")
+	private String usersName;
+	
+	@OneToMany(fetch=FetchType.LAZY,targetEntity=MileStone.class,cascade=CascadeType.ALL)
+	@JoinColumn(name="responsible",referencedColumnName="usersid")
+	private Set milestoneuser();
+	
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="FilmActor">
+ <class name="Film" table="film">
+ <id name="filmId" column="filmid"/>
+ <property name="filmName" column="filmname"/>
+ <set name="actor" cascade="all" table="film_actor">
+ <key column="film_id"/>
+ <many-to-many class="FilmActor.Actor" column="actor_id"/>
+ </set>
+ 
+ </class>
+ 
+ </hibernate-mapping>

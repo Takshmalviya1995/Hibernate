@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+          "E:/Hibernate/mapping files/hibernate-configuration-3.0.dtd">
+          
+<hibernate-configuration>
+	<session-factory>
+		 
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/manytomany</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+
+
+		<!-- SQL DIALECT -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- SHOW SQL OUTPUT -->
+        <property name="show_sql">true</property>
+
+
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">update</property>
+		
+		<mapping resource="StudentCourses/Student.hbm.xml"/>
+		<mapping resource="StudentCourses/Courses.hbm.xml"/>
+		
+		<mapping resource="EmployeeProject/Employee.hbm.xml"/>
+		<mapping resource="EmployeeProject/Project.hbm.xml"/>
+		
+		<mapping resource="FilmActor/Film.hbm.xml"/>
+		<mapping resource="FilmActor/Actor.hbm.xml"/>
+		
+		<mapping resource="ArtistSong/Artist.hbm.xml"/>
+		<mapping resource="ArtistSong/Song.hbm.xml"/>
+		
+		<mapping resource="OrderItem/Orders.hbm.xml"/>
+		<mapping resource="OrderItem/Item.hbm.xml"/>
+		
+		<mapping resource="CustomerBank/Customer.hbm.xml"/>
+		<mapping resource="CustomerBank/Bank.hbm.xml"/>
+		
+		<mapping resource="PeopleAddress/People.hbm.xml"/>
+		<mapping resource="PeopleAddress/Address.hbm.xml"/>
+		
+		<mapping resource="CountryLanguage/Country.hbm.xml"/>
+		<mapping resource="CountryLanguage/Language.hbm.xml"/>
+		
+		<mapping resource="FarmerCow/Farmer.hbm.xml"/>
+		<mapping resource="FarmerCow/Cow.hbm.xml"/>
+		
+		<mapping resource="TrainPassenger/Train.hbm.xml"/>
+		<mapping resource="TrainPassenger/Passenger.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>
+		

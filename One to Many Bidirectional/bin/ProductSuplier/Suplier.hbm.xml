@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="ProductSuplier">
+ <class name="Suplier" table="suplier">
+ <id name="suplierId" column="suplierid"/>
+ <property name="suplierName" column="supliername"/>
+ <property name="supplierAdd" column="address"/>
+ <!-- <property name="forevenId" column="forevenid" insert="false"/> -->
+ <many-to-one name="parentObjects" column="forevenid" cascade="all"/>
+ 
+ </class>
+ </hibernate-mapping>

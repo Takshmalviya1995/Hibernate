@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="BusPassenger">
+ <class name="Bus" table="bus">
+ <id name="busId" column="busid"/>
+ <property name="busName" column="busname"/>
+ <set name="children" cascade="all">
+ <key column="forevenId"/>
+ <one-to-many class="BusPassenger.Passenger"/>
+ </set>
+ </class>
+ </hibernate-mapping>

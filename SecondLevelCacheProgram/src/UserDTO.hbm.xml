@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.Cache">
+	<class name="UserDTO" table="Employee">
+	<cache usage="read-write" />  
+	<id name="id">
+	<generator class="increment"></generator>
+	</id>	
+	<property name="name" column="NAME"></property>
+	<property name="age" column="AGE"></property>
+	<property name="salary" column="SALARY"></property>
+	<property name="location" column="LOCATION"></property>
+	
+	
+	
+	</class>
+	
+	</hibernate-mapping>

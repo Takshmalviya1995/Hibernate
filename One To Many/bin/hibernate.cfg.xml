@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+          "E:/Hibernate/mapping files/hibernate-configuration-3.0.dtd">
+          
+<hibernate-configuration>
+	<session-factory>
+		 
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/onetomany</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+
+
+		<!-- SQL DIALECT -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- SHOW SQL OUTPUT -->
+        <property name="show_sql">true</property>
+
+
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">update</property>
+		
+		<mapping resource="Customer.hbm.xml"/>
+		<mapping resource="Vendor.hbm.xml"/>
+		
+		<mapping resource="Teacher.hbm.xml"/>
+		<mapping resource="Student.hbm.xml"/>
+		
+		<mapping resource="Department.hbm.xml"/>
+		<mapping resource="Employee.hbm.xml"/>
+		
+		<mapping resource="Company.hbm.xml"/>
+		<mapping resource="Client.hbm.xml"/>
+		
+		<mapping resource="Speaker.hbm.xml"/>
+		<mapping resource="Listner.hbm.xml"/>
+		
+		<mapping resource="Doctor.hbm.xml"/>
+		<mapping resource="Patient.hbm.xml"/>
+		
+		<mapping resource="OwnerCar/Owner.hbm.xml"/>
+		<mapping resource="OwnerCar/car.hbm.xml"/>
+		
+		<mapping resource="ShopItem/Shop.hbm.xml"/>
+		<mapping resource="ShopItem/Item.hbm.xml"/>
+		
+		<mapping resource="BusPassenger/Bus.hbm.xml"/>
+		<mapping resource="BusPassenger/Passenger.hbm.xml"/>
+		
+		<mapping resource="RiderBike/Rider.hbm.xml"/>
+		<mapping resource="RiderBike/Bike.hbm.xml"/>
+		
+		<mapping resource="StateDistrict/State.hbm.xml"/>
+		<mapping resource="StateDistrict/District.hbm.xml"/>
+		
+		
+	</session-factory>
+</hibernate-configuration>
+		

@@ -1,0 +1,53 @@
+package BugTracker;
+
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="project")
+@Data
+public class ProjectDemo {
+	
+	@Id
+	@Column(name="projectid")
+	private int projectId;
+	
+	@Column(name="projectname")
+	private String projectName;
+	
+	@Column(name="startdate")
+	private Date startDate;
+	
+	@Column(name="endDate")
+	private String endDate;
+	
+	@Column(name="Overview")
+	private String overview;
+	
+	@OneToMany(fetch=FetchType.LAZY,targetEntity=Users.class,cascade=CascadeType.ALL)
+	@JoinColumn(name="projectfor",referencedColumnName="projectid")
+	private Set userschild;
+	
+	@OneToMany(fetch=FetchType.LAZY,targetEntity=MileStone.class,cascade=CascadeType.ALL)
+	@JoinColumn(name="projectfor",referencedColumnName="projectid")
+	
+	
+	
+	
+	
+	
+	
+
+}

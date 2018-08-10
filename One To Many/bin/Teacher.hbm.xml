@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="TeacherStudent">
+ <class name="Teacher" table="teacher" >
+ 
+ <id name="teachId" column="teachid"/>
+ 
+ <property name="name" column="name" length="10"/>
+ 
+
+ <set name="children" cascade="all">
+ 
+ <key column="forevenid"></key>
+ <one-to-many class="TeacherStudent.Student"/>
+ 
+ </set>
+ </class>
+ 
+  <query name="selectonerecord1">
+ 		<![CDATA[from Teacher where teachId=?]]>
+ 		</query>
+ </hibernate-mapping>

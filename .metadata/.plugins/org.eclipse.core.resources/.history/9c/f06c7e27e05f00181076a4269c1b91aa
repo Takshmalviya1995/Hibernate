@@ -1,0 +1,58 @@
+package BugTracker;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="bug")
+@Data
+public class Bug {
+	@Id
+	@Column(name="bugid")
+	private int bugId;
+	
+	@Column(name="bugtitle")
+	private String bugTitle;
+	
+	@Column(name="description")
+	private String description;
+	
+	@Column(name="lastdate")
+	private String lastDate;
+	
+	@Column(name="serverity")
+	private String serverity;
+	
+	@Column(name="relesemilestone")
+	private String relesemilestone;
+	
+	@Column(name="effectedmilestone")
+	private String effectedmilestone;
+	
+	@Column(name="module")
+	private String module;
+	
+	@Column(name="classification")
+	private String classification;
+	
+	@Column(name="reproducable")
+	private String reproducable;
+	
+	@Column(name="flag")
+	private String flag;
+	
+	@OneToMany(fetch=FetchType.LAZY,targetEntity=status.class,cascade=CascadeType.ALL)
+	@JoinColumn(name="bugid",referencedColumnName="bugid")
+	private Set bugstatus;
+	
+}

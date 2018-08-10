@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="SpeakerListner">
+ <class name="Listner" table="listner">
+ <id name="liId" column="listid"/>
+ <property name="liname" column="listname"/>
+ <property name="liqualification" column="listqual"/>
+ <many-to-one name="fid" column="foid" class="SpeakerListner.Speaker" cascade="all"/>
+ </class>
+ </hibernate-mapping>

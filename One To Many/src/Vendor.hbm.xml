@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="com.onetomanyvendor">
+ <class name="Vendor" table="vendor" >
+ 
+ <id name="vendorId" column="vendid"/>
+ 
+ <property name="vendorName" column="vendname" length="10"/>
+ 
+ <set name="children" cascade="all">
+ 
+ <key column="forevenid"></key>
+ <one-to-many class="com.onetomanyvendor.Customer"/>
+ 
+
+ 
+ </set>
+ </class>
+  <query name="selectonerecord">
+ 		<![CDATA[from Vendor where vendorId=?]]>
+ 		</query>
+ </hibernate-mapping>

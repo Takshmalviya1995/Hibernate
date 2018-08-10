@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="CompanyClient">
+ <class name="Company" table="Company" >
+ 
+  <id name="cmpId" column="companyid"/>
+ 
+ <property name="cmpName" column="companyname" length="20"/>
+ 
+</class>
+</hibernate-mapping>

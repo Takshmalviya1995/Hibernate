@@ -1,0 +1,331 @@
+package BugTracker;
+
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+
+
+public class Selectquery {
+	
+static  AnnotationConfiguration cfg=new AnnotationConfiguration().configure();
+    
+
+    static SessionFactory factory = cfg.buildSessionFactory();
+    static Session session = factory.openSession();
+    
+    public static void selectAdminWithProject()
+    {
+    	System.out.println("**********ADMIN WITH PROJECTS**********");
+    	List list = session.createQuery("from Admin").list();
+    	for(Iterator itr = list.iterator(); itr.hasNext();)
+    	{
+    		Admin admin = (Admin)itr.next();
+    		System.out.println("Admin Id    : "+admin.getAdminId());
+    		System.out.println("Admin Name  : "+admin.getAdminName());
+    		System.out.println(" ");
+    		
+    		for(Iterator itr1 = admin.getClientchild().iterator(); itr1.hasNext();)
+    		{
+    			ProjectDemo projectdemo1 = (ProjectDemo)itr1.next();
+    			System.out.println("Project Id         : "+projectdemo1.getProjectId());
+    			System.out.println("Project Name       : "+projectdemo1.getProjectName());
+    			System.out.println("Project StartDate  : "+projectdemo1.getStartDate());
+    			System.out.println("Project EndDate    : "+projectdemo1.getEndDate());
+    			System.out.println("Project OverView   : "+projectdemo1.getOverview());
+    			//System.out.println("Project OverView: "+projectdemo.get
+    			System.out.println(" ");
+    		}
+    	}
+    }
+    
+    public static void selectAdminWithEvents()
+    {
+    	System.out.println("**********ADMIN WITH EVENTS**********");
+    	List list = session.createQuery("from Admin").list();
+    	for(Iterator itr = list.iterator(); itr.hasNext();)
+    	{
+    		Admin admin = (Admin)itr.next();
+    		System.out.println("Admin Id    : "+admin.getAdminId());
+    		System.out.println("Admin Name  : "+admin.getAdminName());
+    		System.out.println(" ");
+    		
+    		for(Iterator itr1 = admin.getAdminevent().iterator(); itr1.hasNext();)
+    		{
+    			Event event = (Event)itr1.next();
+    			System.out.println("Event Id        :"+event.getEventId());
+    			System.out.println("Event Title     :"+event.getEventTitle());
+    			System.out.println("Event Date      :"+event.getDate());
+    			System.out.println("Event Time      :"+event.getTime());
+    			System.out.println("Event Duration  :"+event.getDuration());
+    			System.out.println("Event Location  :"+event.getLocation());
+    		}
+    	}
+    }
+    
+    public static void selectProjectWithUsers()
+    {
+    	System.out.println("**********PROJECTS WITH USERS**********");
+    	List list = session.createQuery("from ProjectDemo").list();
+    	for(Iterator itr = list.iterator(); itr.hasNext();)
+    	{ 
+    		ProjectDemo projectdemo1 = (ProjectDemo)itr.next();
+			System.out.println("Project Id         : "+projectdemo1.getProjectId());
+			System.out.println("Project Name       : "+projectdemo1.getProjectName());
+			System.out.println("Project StartDate  : "+projectdemo1.getStartDate());
+			System.out.println("Project EndDate    : "+projectdemo1.getEndDate());
+			System.out.println("Project OverView   : "+projectdemo1.getOverview());
+			//System.out.println("Project OverView: "+projectdemo.get
+			System.out.println(" ");
+			
+			for(Iterator itr2 = projectdemo1.getUserschild().iterator(); itr2.hasNext();)
+    		{
+    			Users users = (Users)itr2.next();
+    			System.out.println("User Id 	: "+users.getUsersId());
+				System.out.println("User Name   : "+users.getUsersName());		
+    			System.out.println("User Role   : "+users.getUsersRole());
+    			System.out.println(" ");
+    		}
+			
+			for(Iterator itr2 = projectdemo1.getMilestoneproject().iterator(); itr2.hasNext();)
+			{
+				MileStone milestone1 = (MileStone) itr2.next();
+				System.out.println("Milestone ID        : "+milestone1.getMilestoneId());
+				System.out.println("Milestone Name      : "+milestone1.getMilestoneName());
+				System.out.println("Milestone StartDate : "+milestone1.getStartDate());		
+				System.out.println("Milestone EndDate   : "+milestone1.getEndDate());
+				System.out.println("Milestone Flag      : "+milestone1.getFlag());
+				System.out.println(" ");
+    	
+			}
+			for(Iterator itr3 = projectdemo1.getBugproject().iterator(); itr3.hasNext();)
+			{
+				Bug bug1 = (Bug)itr3.next();
+				System.out.println("Bug ID           :"+bug1.getBugId());
+				System.out.println("Bug Title        :"+bug1.getBugTitle());
+				System.out.println("Bug Description  :"+bug1.getDescription());
+				System.out.println("Bug LastDate     :"+bug1.getLastDate());
+				System.out.println("Bug Serverity    :"+bug1.getServerity());
+				System.out.println("Bug Module       :"+bug1.getModule());
+				System.out.println("Bug Reproducable :"+bug1.getReproducable());
+				System.out.println("Bug Flag         :"+bug1.getFlag());
+				System.out.println(" ");	
+			}
+    	}
+    }
+    
+    
+    
+    
+    public static void selectMileStoneWithUser()
+    {
+    	System.out.println("**********ADMIN WITH PROJECTS**********");
+    	List list = session.createQuery("from MileStone").list();
+    	for(Iterator itr = list.iterator(); itr.hasNext();)
+    	{
+    		MileStone milestone1 = (MileStone) itr.next();
+			System.out.println("Milestone ID        : "+milestone1.getMilestoneId());
+			System.out.println("Milestone Name      : "+milestone1.getMilestoneName());
+			System.out.println("Milestone StartDate : "+milestone1.getStartDate());		
+			System.out.println("Milestone EndDate   : "+milestone1.getEndDate());
+			System.out.println("Milestone Flag      : "+milestone1.getFlag());
+			System.out.println(" ");
+			
+			Users users = milestone1.getUsermilestone();
+			System.out.println("User Id 	: "+users.getUsersId());
+			System.out.println("User Name   : "+users.getUsersName());		
+			System.out.println("User Role   : "+users.getUsersRole());
+			System.out.println(" ");
+			
+			for(Iterator itr1 = milestone1.getBugmilestone().iterator(); itr1.hasNext();)
+			{
+				Bug bug1 = (Bug)itr1.next();
+				System.out.println("Bug ID           :"+bug1.getBugId());
+				System.out.println("Bug Title        :"+bug1.getBugTitle());
+				System.out.println("Bug Description  :"+bug1.getDescription());
+				System.out.println("Bug LastDate     :"+bug1.getLastDate());
+				System.out.println("Bug Serverity    :"+bug1.getServerity());
+				System.out.println("Bug Module       :"+bug1.getModule());
+				System.out.println("Bug Reproducable :"+bug1.getReproducable());
+				System.out.println("Bug Flag         :"+bug1.getFlag());
+				System.out.println(" ");
+			}
+    	}
+	   
+   }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void selectProject()
+    {
+    	System.out.println("**********PROJECTS WITH USERS**********");
+    	List list = session.createQuery("from ProjectDemo").list();
+    	
+    	System.out.println("Project Id    ||      Project Name         ||         StartDate 		|| 		EndDate 		 	|| 		Milestone ID 		||		 BugID		||"); 
+    	
+    	for(Iterator itr = list.iterator(); itr.hasNext();)
+    	{ 
+    		ProjectDemo projectdemo1 = (ProjectDemo)itr.next();
+			System.out.print(projectdemo1.getProjectId()+"                 ");
+			System.out.print(projectdemo1.getProjectName()+"             ");
+			System.out.print(projectdemo1.getStartDate()+"                        ");
+			System.out.print(projectdemo1.getEndDate()+"                                              ");
+			
+			//System.out.println("Project OverView: "+projectdemo.get
+			//System.out.println(" ");	
+				
+    		
+			
+				for(Iterator itr3 = projectdemo1.getMilestoneproject().iterator(); itr3.hasNext();)
+				{
+					MileStone milestone1 = (MileStone) itr3.next();
+					System.out.print(milestone1.getMilestoneId()+"                                ");
+					//System.out.println("Milestone Name      : "+milestone1.getMilestoneName());
+					
+						for(Iterator itr4 = milestone1.getBugmilestone().iterator(); itr4.hasNext();)
+						{
+							Bug bug1 = (Bug)itr4.next();
+							System.out.print(bug1.getBugId()+",");
+							//System.out.println("Bug Title        :"+bug1.getBugTitle());
+							
+							
+						}
+						System.out.println(" ");
+				}
+    		}
+    	
+    	}
+    
+    
+    
+    
+    public static void selectMileStone()
+    {
+    	System.out.println("**********ADMIN WITH PROJECTS**********");
+    	List list = session.createQuery("from MileStone").list();
+    System.out.println("MileStone Id    ||    MileStone Name     ||       Start Date      ||        End Date       ||     User Id     ||     User Name        ||       Bug Id       ||         Bug Name      ");
+    	for(Iterator itr = list.iterator(); itr.hasNext();)
+    	{
+    		MileStone milestone1 = (MileStone) itr.next();
+			System.out.print(milestone1.getMilestoneId()+"                   ");
+			System.out.print(milestone1.getMilestoneName()+"            ");
+			System.out.print(milestone1.getStartDate()+"           ");		
+			System.out.print(milestone1.getEndDate()+"            ");
+			
+			
+			Users users = milestone1.getUsermilestone();
+			System.out.print(users.getUsersId()+"                 ");
+			System.out.print(users.getUsersName()+"                      ");		
+			
+			for(Iterator itr1 = milestone1.getBugmilestone().iterator(); itr1.hasNext();)
+			{
+				Bug bug1 = (Bug)itr1.next();
+				System.out.print(bug1.getBugId()+"                 ");
+				
+			}
+			System.out.println("");
+    	}
+	   
+   }
+    
+
+        	/*	for(Iterator itr5 = projectdemo1.getUserschild().iterator(); itr5.hasNext();)
+        		{
+        			Users users = (Users)itr5.next();
+        			System.out.println("User Id 	: "+users.getUsersId());
+   					System.out.println("User Name   : "+users.getUsersName());		
+        			System.out.println("User Role   : "+users.getUsersRole());
+        			System.out.println(" ");
+        		}
+    		}*/
+        			
+        			
+        		/*	for(Iterator itr6 = users.getMilestoneuser().iterator(); itr6.hasNext();)
+            		{
+        				
+            		}
+        		}
+    			
+    			for(Iterator itr2 = projectdemo1.getMilestoneproject().iterator(); itr2.hasNext();)
+    			{
+    				MileStone milestone1 = (MileStone) itr2.next();
+    				System.out.println("Milestone ID        : "+milestone1.getMilestoneId());
+    				System.out.println("Milestone Name      : "+milestone1.getMilestoneName());
+    				System.out.println("Milestone StartDate : "+milestone1.getStartDate());		
+    				System.out.println("Milestone EndDate   : "+milestone1.getEndDate());
+    				System.out.println("Milestone Flag      : "+milestone1.getFlag());
+    				System.out.println(" ");
+    				
+    				for(Iterator itr3 = milestone1.getBugmilestone().iterator(); itr3.hasNext();)
+    				{
+    					Bug bug1 = (Bug)itr3.next();
+    					System.out.println("Bug ID           :"+bug1.getBugId());
+    					System.out.println("Bug Title        :"+bug1.getBugTitle());
+    					System.out.println("Bug Description  :"+bug1.getDescription());
+    					System.out.println("Bug LastDate     :"+bug1.getLastDate());
+    					System.out.println("Bug Serverity    :"+bug1.getServerity());
+    					System.out.println("Bug Module       :"+bug1.getModule());
+    					System.out.println("Bug Reproducable :"+bug1.getReproducable());
+    					System.out.println("Bug Flag         :"+bug1.getFlag());
+    					System.out.println(" ");
+    					
+    					
+    				}
+    			}
+    		}
+    	}
+    	session.close();
+    }
+    
+    public static void selectEvent()
+    {
+    	List list = session.createQuery("from Admin").list();
+    	for(Iterator itr = list.iterator(); itr.hasNext();)
+    	{
+    		Admin admin = (Admin)itr.next();
+    		System.out.println("Admin Id    : "+admin.getAdminId());
+    		System.out.println("Admin Name  : "+admin.getAdminName());
+    		System.out.println(" ");
+    		
+    		for(Iterator itr4=admin.getAdminevent().iterator();itr4.hasNext();)
+    		{
+    			
+    		}
+    	}
+    }
+*/    public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    		//selectAdminWithProject();
+    		//selectAdminWithEvents();
+			//selectProjectWithUsers();
+			//selectProject();
+			//selectMileStoneWithUser();
+				selectMileStone();
+	}
+}

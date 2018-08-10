@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="ProductSuplier">
+ <class name="Product" table="product">
+ <id name="productId" column="productid"/>
+ <property name="productDesc" column="description"/>
+ <property name="productPrice" column="price"/>
+ 
+ <set name="children" cascade="all" inverse="true">
+<key column="forevenId"/>
+ <one-to-many class="ProductSuplier.Suplier"/>
+ </set>
+ </class>
+ </hibernate-mapping>

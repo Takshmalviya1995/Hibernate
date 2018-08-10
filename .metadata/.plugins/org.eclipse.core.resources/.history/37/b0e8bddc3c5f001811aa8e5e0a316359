@@ -1,0 +1,30 @@
+package BugTracker;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="milestone")
+@Data
+public class MileStone {
+	
+	@Id
+	@Column(name="milestone_id")
+	private int milestoneId;
+	
+	@Column(name="startdate")
+	private Date startDate;
+	
+	@Column(name="enddate")
+	private String endDate;
+	
+	@Column(name="Flag")
+	private String flag;
+
+}

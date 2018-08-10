@@ -1,0 +1,18 @@
+package BugTracker;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="milestone")
+public class MileStone {
+	
+	@Id
+	@Column(name="milestone_id")
+	private int milestoneId;
+	
+	@Column(name="")
+
+}

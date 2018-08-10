@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="OrderItem">
+ <class name="Item" table="item">
+ <id name="itemId" column="itemid"/>
+ <property name="itemName" column="itemname"/>
+ <set name="orders" inverse="false" cascade="all" table="order_item">
+ <key column="item_id"/>
+ <many-to-many class="OrderItem.Orders" column="order_id"/>
+ 
+ </set>
+ </class>
+ </hibernate-mapping>

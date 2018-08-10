@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="StateDistrict">
+ <class name="District" table="district">
+ <id name="districtId" column="districtid"/>
+ <property name="districtName" column="districtname"/>
+ <property name="forevenId" column="forevenid" insert="false"/>
+ </class>
+ </hibernate-mapping>
+ 

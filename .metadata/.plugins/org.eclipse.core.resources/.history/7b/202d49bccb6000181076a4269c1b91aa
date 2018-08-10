@@ -1,0 +1,26 @@
+package UpdateDetails;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+
+import BugTracker.Status;
+
+public class Update_Status {
+static  AnnotationConfiguration cfg=new AnnotationConfiguration().configure();
+    
+
+    static SessionFactory factory = cfg.buildSessionFactory();
+    static Session session = factory.openSession();
+
+    public static void update_BugStatus()
+    {
+    	Status status = (Status)session.get(Status.class, 601);
+    	status.setStatustext("complete");
+    }
+    
+    public static void main(String[] args) {
+		update_BugStatus();
+	}
+
+}

@@ -1,0 +1,17 @@
+package adminanduserwork;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="Admin")
+@Data
+public class Admin {
+
+	@Column(name="")
+	private int adminId;
+	private String adminName;
+}

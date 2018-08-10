@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="VendorCustomer">
+ <class name="Customer" table="customer">
+ <id name="customerId" column="customerid"/>
+ <property name="customerName" column="customername"/>
+ <!-- <property name="forevenId" column="forevenid" insert="false"/> -->
+ <many-to-one name="parentObjects" column="forevenid" cascade="all"/>
+ 
+ </class>
+ </hibernate-mapping>

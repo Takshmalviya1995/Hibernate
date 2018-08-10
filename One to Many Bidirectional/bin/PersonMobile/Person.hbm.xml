@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="PersonMobile">
+ <class name="Person" table="person">
+ <id name="personId" column="personid"/>
+ 
+ <property name="personName" column="name"/>
+ 
+ <set name="children" cascade="all" inverse="true">
+ 
+ <key column="forevenId"/>
+ <one-to-many class="PersonMobile.Mobile"/>
+ </set>
+ </class> 
+ </hibernate-mapping>

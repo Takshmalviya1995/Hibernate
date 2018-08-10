@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="TrainPassenger">
+ <class name="Passenger" table="passenger">
+ <id name="passengerId" column="passengerid"/>
+ <property name="passengerName" column="passengername"/>
+ <set name="train" inverse="false" cascade="all" table="tarin_passenger">
+ <key column="passenger_id"/>
+ <many-to-many class="TrainPassenger.Train" column="train_id"/>
+ 
+ </set>
+ </class>
+ </hibernate-mapping>

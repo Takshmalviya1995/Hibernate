@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ 
+ <hibernate-mapping package="Filters2">
+ <class name="Employee" table="employee">
+ <id name="employeeId" column="empid">
+ <generator class="increment"/>
+ </id>
+ <property name="name" column="empname"/>
+ <property name="salary" column="empsalary"/>
+ <property name="age" column="empage"/>
+ <property name="city" column="empcity"/>
+ 
+ <filter name="employeeName" condition="empname like '%h' and empsalary>=7000"/>
+ 
+ </class>
+ <filter-def name="employeeName"></filter-def>
+ </hibernate-mapping>

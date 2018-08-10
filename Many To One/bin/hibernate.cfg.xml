@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+          "E:/Hibernate/mapping files/hibernate-configuration-3.0.dtd">
+          
+<hibernate-configuration>
+	<session-factory>
+		 
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/manytoone</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+
+
+		<!-- SQL DIALECT -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- SHOW SQL OUTPUT -->
+        <property name="show_sql">true</property>
+
+
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">update</property>
+		
+		<mapping resource="VendorCustomer/Customer.hbm.xml"/>
+		<mapping resource="VendorCustomer/Vendor.hbm.xml"/>
+		
+		<mapping resource="CompanyClient/Company.hbm.xml"/>
+		<mapping resource="CompanyClient/Client.hbm.xml"/>
+		
+		<mapping resource="DepartmentEmployee/Department.hbm.xml"/>
+		<mapping resource="DepartmentEmployee/Employee.hbm.xml"/>
+		
+		<mapping resource="SpeakerListner/Speaker.hbm.xml"/>
+		<mapping resource="SpeakerListner/Listner.hbm.xml"/>
+		
+		<mapping resource="CountryState/Country.hbm.xml"/>
+		<mapping resource="CountryState/State.hbm.xml"/>
+		
+		<mapping resource="TeacherStudent/Teacher.hbm.xml"/>
+		<mapping resource="TeacherStudent/Student.hbm.xml"/> 
+		
+		<mapping resource="TeamPlayer/Team.hbm.xml"/>
+		<mapping resource="TeamPlayer/Player.hbm.xml"/> 
+		
+		<mapping resource="DoctorPatient/Doctor.hbm.xml"/>
+		<mapping resource="DoctorPatient/Patient.hbm.xml"/> 
+	</session-factory>
+</hibernate-configuration>
+		

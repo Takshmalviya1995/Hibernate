@@ -1,0 +1,13 @@
+package BugTracker;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		CurdOperation co = new CurdOperation();
+		co.adminInsert();
+		
+
+	}
+
+}

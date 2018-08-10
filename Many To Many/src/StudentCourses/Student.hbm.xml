@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="StudentCourses">
+ <class name="Student" table="student">
+ <id name="studentId" column="studentid"/>
+ <property name="studentName" column="studentname"/>
+ <property name="marks"/>
+ <set name="Courses" cascade="all" table="student_courses">
+ <key column="student_id"/>
+ <many-to-many class="StudentCourses.Courses" column="course_id"/>
+ </set>
+ 
+ </class>
+ 
+ </hibernate-mapping>
+
+ 

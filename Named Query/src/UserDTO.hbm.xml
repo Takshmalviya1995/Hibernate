@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="com.NamedQuery">
+ <class name="UserDTO" table="Employee" >
+ <id name="id">
+ <generator class="increment"></generator>
+ </id>
+ <property name="name" column="NAME"></property>
+	<property name="age" column="AGE"></property>
+	<property name="salary" column="SALARY"></property>
+	<property name="location" column="LOCATION"></property>
+	
+ </class>
+ 
+ 		<!-- Named Query -->
+ 		<query name="selectquery">
+ 		<![CDATA[  from UserDTO  ]]>
+ 		</query>
+ 		
+ 		<query name="selectoneattribute">
+ 		<![CDATA[from UserDTO u where u.name=:name]]>
+ 		</query>
+ 		
+ 		<query name="authentic">
+ 		<![CDATA[from UserDTO where name=?]]>
+ 		</query>
+ </hibernate-mapping>

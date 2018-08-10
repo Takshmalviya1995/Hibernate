@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="DoctorPatient">
+ <class name="Doctor" table="doctor" >
+ 
+  <id name="doctId" column="doctorid"/>
+ 
+ <property name="DoctName" column="doctorname" length="10"/>
+ 
+ <set name="children" cascade="all">
+ 
+  
+ <key column="forevenid"></key>
+ <one-to-many class="DoctorPatient.Patient"/>
+ 
+ </set>
+ 
+ </class>
+ <!--  <query name="selectonerecordSAL">
+ 		<![CDATA[from Speaker where SpId=?]]>
+ 		</query>  -->
+ </hibernate-mapping>

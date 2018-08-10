@@ -1,0 +1,22 @@
+package adminanduserwork;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.*;
+
+import lombok.Data;
+
+@Entity
+@Table(name="Admin")
+@Data
+public class Admin {
+
+	@Column(name="adminid")
+	private int adminId;
+	@Column(name="adminname")
+	private String adminName;
+	
+	@OneToMany(fetch=Fe)
+}

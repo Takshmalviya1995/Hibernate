@@ -1,0 +1,33 @@
+package BugTracker;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="project")
+@Data
+public class ProjectDemo {
+	
+	@Id
+	@Column(name="projectid")
+	private int projectId;
+	
+	@Column(name="projectname")
+	private String projectName;
+	
+	@Column(name="startdate")
+	private Date startDate;
+	
+	@Column(name="endDate")
+	private String endDate;
+	
+	@Column(name="Overview")
+	private String overview;
+
+}

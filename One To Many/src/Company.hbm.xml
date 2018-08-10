@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="CompanyClient">
+ <class name="Company" table="company" >
+ 
+  <id name="cmpId" column="companyid"/>
+ 
+ <property name="cmpName" column="Companyname" length="10"/>
+ 
+ <set name="children" cascade="all">
+ 
+  
+ <key column="forevenid"></key>
+ <one-to-many class="CompanyClient.Client"/>
+ 
+ </set>
+ 
+ </class>
+  <query name="selectonerecord3">
+ 		<![CDATA[from Company where cmpId=?]]>
+ 		</query>
+ </hibernate-mapping>

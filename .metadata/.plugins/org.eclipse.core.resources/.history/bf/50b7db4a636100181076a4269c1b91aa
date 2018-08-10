@@ -1,0 +1,21 @@
+package selectDetails;
+
+public class TestSelect {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Selectquery sq = new Selectquery();
+		sq.selectAdminWithProject();
+		//sq.selectAdminWithEvents();
+		//sq.selectProjectWithUsers();
+		//sq.selectProject();
+		//sq.selectMileStoneWithUser();
+		//sq.selectMileStone();
+		//sq.bugWithStatus();
+		//sq.userwithevent();
+
+
+	}
+
+}

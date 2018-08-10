@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="TeacherStudent">
+ 
+ <class name="Student" table="student" >
+ 
+ <id name="rollno" column="rollno"/>
+ 
+ <property name="subject" column="subject" length="10"></property>
+ 
+  <property name="name" column="name" length="10"></property>
+ 
+ <property name="forevenId" column="forevenid" insert="false"></property>
+ 
+ </class>
+ </hibernate-mapping>

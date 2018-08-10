@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="SpeakerListner">
+ 
+ <class name="Listner" table="Listner" >
+ 
+ <id name="liId" column="listnerid"/>
+ 
+ <property name="liname" column="listnername" length="10"></property>
+  <property name="liqualification" column="listnerqualification" length="10"></property>
+ 
+ <property name="forevenId" column="forevenid" insert="false"></property>
+ 
+ </class>
+ </hibernate-mapping>

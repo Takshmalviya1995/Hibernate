@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="LibraryBook">
+ <class name="Library" table="library1">
+ <id name="libraryId" column="libraryid"/>
+ 
+ <property name="libraryName" column="name"/>
+ 
+ <set name="children" cascade="all" inverse="true">
+ 
+ <key column="forevenId"/>
+ <one-to-many class="LibraryBook.Book1"/>
+ </set>
+ </class> 
+ </hibernate-mapping>

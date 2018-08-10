@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="TablePerConcrete">
+ <class name="Payment2" table="payment2">
+ <id name="paymentId" column="pid" />
+<property name="amount" column="amt" />
+
+<union-subclass name="CreditCard2">
+<property name="CreditCardType" column="cctype" length="10" />
+</union-subclass>
+
+<union-subclass name="Cheque2">
+<property name="ChequeType" column="cctype" length="10" />
+</union-subclass>
+</class>
+</hibernate-mapping>

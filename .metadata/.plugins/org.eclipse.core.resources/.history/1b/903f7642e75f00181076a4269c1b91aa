@@ -1,0 +1,23 @@
+package BugTracker;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="status")
+@Data
+public class Status {
+
+	@Id
+	@Column(name="statusid")
+	private int statusId;
+	
+	@Column(name="statustext")
+	private String statustext;
+	
+	
+}

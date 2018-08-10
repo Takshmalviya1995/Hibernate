@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="FilmActor">
+ <class name="Actor" table="actor">
+ <id name="actorId" column="actorid"/>
+ <property name="actorName" column="actorname"/>
+ <set name="film" inverse="false" cascade="all" table="film_actor">
+ <key column="actor_id"/>
+ <many-to-many class="FilmActor.Film" column="film_id"/>
+ 
+ </set>
+ </class>
+ </hibernate-mapping>
+ 
+ 

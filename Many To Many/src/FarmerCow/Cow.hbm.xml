@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="FarmerCow">
+ <class name="Cow" table="cow">
+ <id name="cowId" column="cowid"/>
+ <property name="cowName" column="cow"/>
+ <set name="farmer" inverse="false" cascade="all" table="farmer_cow">
+ <key column="cow_id"/>
+ <many-to-many class="FarmerCow.Farmer" column="farmer_id"/>
+ 
+ </set>
+ </class>
+ </hibernate-mapping>

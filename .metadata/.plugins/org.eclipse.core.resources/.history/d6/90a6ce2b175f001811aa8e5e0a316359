@@ -1,0 +1,29 @@
+package adminanduserwork;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name="Admin")
+@Data
+public class Admin {
+
+	@Column(name="adminid")
+	private int adminId;
+	@Column(name="adminname")
+	private String adminName;
+	
+	@OneToMany(fetch=FetchType.LAZY,targetEntity=Client.class,cascade=CascadeType.ALL)
+	@JoinColumn(name="adminfor",referencedColumnName="adminid")
+	
+	private Set clientchild;
+}

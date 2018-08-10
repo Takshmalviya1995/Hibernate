@@ -1,0 +1,64 @@
+package BugTracker;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name="bug")
+@Getter
+@Setter
+public class Bug {
+	@Id
+	@Column(name="bugid")
+	private int bugId;
+	
+	@Column(name="bugtitle")
+	private String bugTitle;
+	
+	@Column(name="description")
+	private String description;
+	
+	@Column(name="lastdate")
+	private String lastDate;
+	
+	@Column(name="serverity")
+	private String serverity;
+	
+	
+	@Column(name="module")
+	private String module;
+	
+	
+	@Column(name="reproducable")
+	private String reproducable;
+	
+	@Column(name="flag")
+	private String flag;
+	
+	@OneToMany(fetch=FetchType.LAZY,targetEntity=BugAssign.class,cascade=CascadeType.ALL)
+	@JoinColumn(name="bugid",referencedColumnName="bugid")
+	private Set bugassign;
+	
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Users.class,cascade=CascadeType.ALL)
+	@JoinColumn(name="usersid",referencedColumnName="usersid")
+	private Users bugUser;
+	
+	@OneToOne(fetch=FetchType.LAZY,targetEntity=Status.class,cascade=CascadeType.ALL)
+	@JoinColumn(name="StatusId",referencedColumnName="statusid")
+	private Status bugstatus;
+	
+}

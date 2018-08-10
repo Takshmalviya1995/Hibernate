@@ -1,0 +1,10 @@
+1525496677692	Rename resource 'Vendor.hbm.xml'
+1525496692070	Rename type 'Customer'
+1525496706471	Rename type 'Vendor'
+1525496719889	Rename package 'VendorCustomer'
+1525496776275	Rename package 'VendorCustomer1'
+1525496788830	Rename resource 'Vendor1.hbm.xml'
+1525496803345	Rename type 'Customer1'
+1525496815486	Rename type 'Vendor1'
+1525496909292	Delete element
+1525500463301	Rename resource 'Coampany.hbm.xml'

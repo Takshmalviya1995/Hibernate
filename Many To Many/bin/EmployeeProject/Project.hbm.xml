@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "E:/Hibernate/mapping files/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="EmployeeProject">
+ <class name="Project" table="project">
+ <id name="projectId" column="proid"/>
+ <property name="projectName" column="proname"/>
+ <set name="employee" inverse="false" cascade="all" table="employee_project">
+ <key column="project_id"/>
+ <many-to-many class="EmployeeProject.Employee" column="employee_id"/>
+ 
+ </set>
+ </class>
+ </hibernate-mapping>
+ 
